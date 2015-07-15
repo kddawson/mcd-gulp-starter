@@ -1,0 +1,37 @@
+﻿@charset "utf-8";
+// =============================================================================
+// Default settings
+//
+// =============================================================================
+
+@using-modernizr: true; // whether or not Modernizr feature-detection classes are being used
+
+// @using-ieclasses: true;
+// .selector when (@using-ieclasses) {}
+// .selector when not (@using-ieclasses) {}
+
+
+// Typography
+@base-font-size: 16; // base pixel font size. Used as a default for px -> (r)em conversions
+@base-line-height: 24;
+
+
+// Breakpoints
+// Desktop-first
+@large:     ~"only screen and (min-width: 960px) and (max-width: 1980px)";
+@medium:    ~"only screen and (min-width: 530px) and (max-width: 959px)";
+@small:     ~"only screen and (max-width: 529px)";
+
+// Mobile-first
+@small-portrait:    ~"screen and (min-width: 20em)"; 	// 320px / @base-font-size
+@small-landscape:   ~"screen and (min-width: 30em)";	// 480px / @base-font-size
+@med-landscape:     ~"screen and (min-width: 50em)";	// 800px / @base-font-size
+@desktop:           ~"screen and (min-width: 61em)";	// 976px / @base-font-size
+@big-screen:        ~"screen and (min-width: 83em)";	// 1328px / @base-font-size
+
+// Example high-res media query
+// -webkit-, old syntax, better syntax
+// 96dpi = std resolution, so 96 x 2 = 192dpi or simply 2dppx
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    /* Retina-specific stuff here */
+}

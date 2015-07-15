@@ -1,0 +1,94 @@
+﻿@charset "utf-8";
+// =============================================================================
+// Miscellaneous helpers
+//
+// =============================================================================
+
+
+// Micro clearfix
+// See http://nicolasgallagher.com/micro-clearfix-hack/
+.cf {
+
+	&:before,
+    &:after {
+	    content: " ";
+	    display: table;
+	}
+
+	&:after {
+	    clear: both;
+	}
+
+	*zoom: 1;
+}
+
+.vis-hide {
+	overflow: hidden;
+	position: absolute;
+	margin: -1px;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	border: 0;
+	clip: rect(0 0 0 0);
+}
+
+.full-hide {
+	display: none !important;
+	visibility: hidden;
+}
+
+@base-font-size: 16; // base pixel font size. Used as a default for px -> (r)em conversions
+@base-line-height: 24;
+.font-size-rems(@target-px-size) {
+	@rem-size: @target-px-size / @base-font-size;
+	font-size: ~"@{target-px-size}px";
+	font-size: ~"@{rem-size}rem";
+}
+
+// Improved Nash Image Replacement technique
+// See: http://nicolasgallagher.com/css-image-replacement-with-pseudo-elements/
+
+// add to the element with text to replace
+.nir(@width, @height, @content) {
+	display: block;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	width: @width;
+	height: @height;
+
+    &:before {
+        content: url(@content);
+	    display: inline-block;
+	    font-size: 0;
+	    line-height: 0;
+    }
+}
+
+// Specify the dimensions of an object more easily
+.size(@width, @height) {
+	width: @width;
+	height: @height;
+}
+
+.square(@size) {
+	.size(@size, @size);
+}
+
+// Don't add to * selector - you won't see text in inputs
+.user-select() {
+    -webkit-tap-highlight-color: transparent;
+    -ms-overflow-style: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    user-select: none;
+    outline: none;
+}
+
+// Also set width and perhaps some padding
+.text-overflow-ellipsis() {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
