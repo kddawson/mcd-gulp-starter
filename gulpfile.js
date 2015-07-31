@@ -50,7 +50,7 @@ gulp.task('css', function () {
     .pipe(plugins.rename({ suffix: '.min' }))
     .pipe(plugins.sourcemaps.write('maps'))
     .pipe(gulp.dest(dest + '/css'))
-    .pipe(plugins.notify({ message: 'CSS task complete' }));
+    .pipe(plugins.notify({ message: 'CSS task complete', onLast: true }));
 });
 
 
