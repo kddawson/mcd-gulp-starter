@@ -21,12 +21,20 @@ var src         = './src';
 // =============================================================================
 gulp.task('css', function () {
 
+    var onError = function (err) {
+        plugins.notify.onError({
+            title: "Gulp",
+            subtitle: "Failure!",
+            message: "Error: <%= error.message %>",
+            sound: "Beep"
+        })(err);
+
+        this.emit('end');
+    };
+
     return gulp.src(src + '/less/theme/*.less')
 
-    .on('error', function (err) {
-        console.error('Error!', err.message);
-    })
-
+    .pipe(plugins.plumber({ errorHandler: onError }))
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.less({compress: true}))
     .pipe(plugins.autoprefixer({
