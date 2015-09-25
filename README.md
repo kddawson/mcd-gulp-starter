@@ -19,7 +19,7 @@
 
 ### Install local per project
 1. $ `npm install --save-dev` (installs all packages in package.json)
-2. $ `npm-check-updates -u` (overwrites package.json with latest versions - see: https://github.com/tjunnone/npm-check-updates)
+2. $ `ncu -u` (overwrites package.json with latest versions - see: https://github.com/tjunnone/npm-check-updates)
 
 ### Run process
 * $ `gulp`
