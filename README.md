@@ -2,10 +2,9 @@
 
 
 ## CSS
-* Uses LESS CSS, but easy enough to change to SCSS.
+* Uses Sass.
 * Autoprefixer is in operation - just write CSS properties according to the W3C spec. Amend the supported browser list in the Gulp task.
-* The Less is organised to build colour-themed CSS - it's just an experiment.
-* There's just enough Less/JS to confirm the build works.
+* See: https://github.com/multicelldesign/mcd-snippets-scss for files.
 
 ## Gulp
 * Assumes you have Node already installed.
@@ -25,6 +24,8 @@
 * $ `gulp`
 
 ## Bower
-* Twitter Bootstrap is an obvious out-of-the-starter-theme choice here for a Bower install but you'll be wanting the raw LESS/SCSS and JS files so you can build only what you need. To that end, copy out bootstrap.less and variables.less to your src/less/third-party folder so `$bower update` doesn't override your customisations.
-* This starter project uses https://github.com/jozefizso/bower-bootstrap-less.
-* or just link to the CDN files, override styles where required and have done with it.
+* Twitter Bootstrap is an obvious out-of-the-starter-theme choice here for a Bower install.
+* Once installed, run the bootstrap task to copy the _variables.scss & _bootstrap.scss files to src/scss/third-party for configuration.
+
+## Sassdoc
+* Because documentation. See: http://sassdoc.com
