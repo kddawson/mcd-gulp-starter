@@ -22,7 +22,7 @@ var bootstrapPath   = './bower_components/bootstrap-sass/assets';
 
 // Include Bootstrap files
 // 1. Amend _bootstrap.scss to use the copied version of _variables.scss
-// 2. Amend _bootstrap.scss to use on what's needed
+// 2. Amend _bootstrap.scss to use only what's needed
 // =============================================================================
 gulp.task('bootstrap', ['bootstrapJS'], function () {
     return gulp.src([
@@ -193,7 +193,7 @@ gulp.task('serve', ['watch'], function () {
     });
 
     gulp.watch('*.html').on('change', reload);
-    gulp.watch(dest + '/css/*.css', reload);
+    gulp.watch(dest + '/css/**/*.css').on('change', reload);
 });
 
 // Watch for changes in files
